@@ -1,3 +1,7 @@
-* {
-	background-color: red;
+#concerts-header {
+	float: left;
+}
+
+#directory {
+	float: right;
 }

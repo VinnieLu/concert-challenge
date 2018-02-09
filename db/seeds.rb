@@ -9,7 +9,7 @@ Attendance.destroy_all
 end
 
 5.times do |number|
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{number}@email.com", password: "password")
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{number}@email.com", password_hash: "password")
 end
 
 concerts = Concert.all

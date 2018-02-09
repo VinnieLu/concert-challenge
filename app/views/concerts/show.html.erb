@@ -1,0 +1,17 @@
+<h1>Here are the deets!</h1>
+<h1>Concerts</h1>
+	<strong><%= @concert.band %></strong><br>
+	<%= @concert.venue %><br>
+	<%= @concert.date %><br>
+	<%= @concert.start_time %><br>
+	<hr>
+<h1>Attendees</h1>
+	<% @attendees.each do |k| %>
+		<% if session[:user_id] %>
+			<strong><%= k.first_name %> <%= k.last_name %></strong><br>
+		<% else %>
+			<%= k.first_name %> <%= k.last_name %><br>
+		<% end %>
+			<%= k.email %><br>
+			---------------------<br>
+	<% end %>
