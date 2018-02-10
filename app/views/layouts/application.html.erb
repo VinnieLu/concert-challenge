@@ -6,14 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <script src="/assets/main.js?body=1" type="text/javascript"></script> -->
+    <!-- <script src="/assets/application.js?body=1" type="text/javascript"></script> -->
   </head>
 
   <body>
   	<div id="concerts-header"><h2>Concerts!</h2></div>
   	<div id="directory">
   		<h2>
-  		Login | 
-  		Signup | 
+      <% if session[:user_id] %>
+  		  <a href="/users/logout">Logout | </a>
+      <% else %>
+        <a href="/users/login">Login | </a>
+  		  <a href="/users/new">Signup</a> | 
+      <% end %>
   		<a href="/">Home</a>
   		</h2>
   	</div>

@@ -1,0 +1,27 @@
+<%= form_with model: @user, url: "login_validation", method: "post", local: true do |form| %>
+
+	<% if @errors %>
+		<div id="error_explanation">
+			<ul>
+				<% @errors.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<p>
+		<%= form.label :email %>
+		<%= form.text_field :email %>
+	</p>
+
+	<p>
+		<%= form.label :password %>
+		<%= form.password_field :password %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+<% end %>

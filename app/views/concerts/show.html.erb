@@ -6,8 +6,12 @@
 	<%= @concert.start_time %><br>
 	<hr>
 <h1>Attendees</h1>
+	<% attending = false %>
 	<% @attendees.each do |k| %>
-		<% if session[:user_id] %>
+		<% if session[:user_id] == k.id %>
+			<% attending = true %>
+		<% end %>
+		<% if session[:user_id] == k.id %>
 			<strong><%= k.first_name %> <%= k.last_name %></strong><br>
 		<% else %>
 			<%= k.first_name %> <%= k.last_name %><br>
@@ -15,3 +19,8 @@
 			<%= k.email %><br>
 			---------------------<br>
 	<% end %>
+<% if session[:user_id] && attending = false %>
+	<div id="attend">
+		<%= button_to "Attend", attendances_path(info: {concert_id: @concert.id}) %>
+	</div>
+<% end %>
